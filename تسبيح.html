@@ -1,0 +1,202 @@
+ 
+
+
+            
+            
+           
+            <!DOCTYPE html>
+            <html lang="ar">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                <title>المسبحة الإلكترونية</title>
+                <style>
+                    body {
+                  background-color: #48797a;
+                        font-family: 'Arial', sans-serif;
+                        text-align: center;
+                        color: #050505;
+                    }
+                    .counter-container {
+                        margin-top: 20px;
+                    }
+                    .counter-section {
+                        margin-bottom: 20px;
+                    }
+                    .counter-title {
+                        font-size: 2.0em;
+                        margin-bottom: 10px;
+                    }
+                    .counter {
+                        font-size: 2em;
+                        margin-bottom: 10px;
+                        color: #fc11ae;
+                    }
+                    .completed {
+                        color: green;
+                        font-size: 1.2em;
+                    }
+                    button {
+                        padding: 15px;
+                        font-size: 1.2em;
+                        border: none;
+                        border-radius: 10px;
+                        background-color: #04233d;
+                        color: #f1e8e8;
+                        cursor: pointer;
+                        margin: 5px;
+                        transition: background-color 0.3s ease;
+                    }
+                    button:hover {
+                        background-color: #089f47;
+                    }
+                    button:active {
+                        background-color: #dde5f0;
+                    }
+                    .reset {
+                        background-color: #da0a0a;
+                    }
+                    .reset:hover {
+                        background-color: #9f0808;
+                    }
+                    .reset:active {
+                        background-color: #670505;
+                    }
+        
+                    li{
+                        display: block;
+                        list-style: none;
+                     width: 260px;
+                     gap: 100px;
+                    }
+                    li a{
+                      
+                        margin: 5px 0;
+                        display: flex;
+                        text-decoration: none;
+                        align-items: center;
+                        padding: 20px;
+                        border-radius: 8px;
+                       gap: 100%;
+                       transition: .5s;
+                    }
+                    li a:hover{
+                             background-color: antiquewhite;
+                    }
+                </style>
+            </head>
+            <body>
+                <li>
+                     <a href="html.html"><i class="fas fa-home">القايمه الراسيه</i></a>
+                 
+                </li>
+                <div class="counter-container">
+                    <div class="counter-section">
+                        <div class="counter-title">سبحان الله</div>
+                        <div class="counter" id="subhanAllahCounter">0</div>
+                        <div id="subhanAllahComplete"></div>
+                    </div>
+            
+                    <div class="counter-section">
+                        <div class="counter-title">الحمد لله</div>
+                        <div class="counter" id="alhamdulillahCounter">0</div>
+                        <div id="alhamdulillahComplete"></div>
+                    </div>
+            
+                    <div class="counter-section">
+                        <div class="counter-title">الله أكبر</div>
+                        <div class="counter" id="allahuAkbarCounter">0</div>
+                        <div id="allahuAkbarComplete"></div>
+                    </div>
+            
+                    <div class="counter-section">
+                        <div class="counter-title">لا إله إلا الله</div>
+                        <div class="counter" id="laIlahaIllallahCounter">0</div>
+                        <div id="laIlahaIllallahComplete"></div>
+                    </div>
+            
+                    <button onclick="increaseCount('subhanAllah')">تسبيح "سبحان الله"</button>
+                    <button onclick="increaseCount('alhamdulillah')">تسبيح "الحمد لله"</button>
+                    <button onclick="increaseCount('allahuAkbar')">تسبيح "الله أكبر"</button>
+                    <button onclick="increaseCount('laIlahaIllallah')">تسبيح "لا إله إلا الله"</button>
+                    <br>
+                    <button class="reset" onclick="resetCount()">إعادة التعيين</button>
+                </div>
+            
+                <script>
+                    let subhanAllahCount = 0;
+                    let alhamdulillahCount = 0;
+                    let allahuAkbarCount = 0;
+                    let laIlahaIllallahCount = 0;
+            
+                    function increaseCount(type) {
+                        if (type === 'subhanAllah' && subhanAllahCount < 33) {
+                            subhanAllahCount++;
+                            document.getElementById('subhanAllahCounter').textContent = subhanAllahCount;
+                            if (subhanAllahCount === 33) {
+                                document.getElementById('subhanAllahComplete').textContent = 'اكتملت';
+                                document.getElementById('subhanAllahComplete').classList.add('completed');
+                            }
+                        } else if (type === 'alhamdulillah' && alhamdulillahCount < 33) {
+                            alhamdulillahCount++;
+                            document.getElementById('alhamdulillahCounter').textContent = alhamdulillahCount;
+                            if (alhamdulillahCount === 33) {
+                                document.getElementById('alhamdulillahComplete').textContent = 'اكتملت';
+                                document.getElementById('alhamdulillahComplete').classList.add('completed');
+                            }
+                        } else if (type === 'allahuAkbar' && allahuAkbarCount < 33) {
+                            allahuAkbarCount++;
+                            document.getElementById('allahuAkbarCounter').textContent = allahuAkbarCount;
+                            if (allahuAkbarCount === 33) {
+                                document.getElementById('allahuAkbarComplete').textContent = 'اكتملت';
+                                document.getElementById('allahuAkbarComplete').classList.add('completed');
+                            }
+                        } else if (type === 'laIlahaIllallah' && laIlahaIllallahCount < 1) {
+                            laIlahaIllallahCount++;
+                            document.getElementById('laIlahaIllallahCounter').textContent = laIlahaIllallahCount;
+                            document.getElementById('laIlahaIllallahComplete').textContent = 'اكتملت';
+                            document.getElementById('laIlahaIllallahComplete').classList.add('completed');
+                        }
+                    }
+            
+                    function resetCount() {
+                        subhanAllahCount = 0;
+                        alhamdulillahCount = 0;
+                        allahuAkbarCount = 0;
+                        laIlahaIllallahCount = 0;
+            
+                        document.getElementById('subhanAllahCounter').textContent = subhanAllahCount;
+                        document.getElementById('alhamdulillahCounter').textContent = alhamdulillahCount;
+                        document.getElementById('allahuAkbarCounter').textContent = allahuAkbarCount;
+                        document.getElementById('laIlahaIllallahCounter').textContent = laIlahaIllallahCount;
+            
+                        document.getElementById('subhanAllahComplete').textContent = '';
+                        document.getElementById('alhamdulillahComplete').textContent = '';
+                        document.getElementById('allahuAkbarComplete').textContent = '';
+                        document.getElementById('laIlahaIllallahComplete').textContent = '';
+            
+                        document.getElementById('subhanAllahComplete').classList.remove('completed');
+                        document.getElementById('alhamdulillahComplete').classList.remove('completed');
+                        document.getElementById('allahuAkbarComplete').classList.remove('completed');
+                        document.getElementById('laIlahaIllallahComplete').classList.remove('completed');
+                    }
+                </script>
+            
+            </body>
+            </html>
+            
+                        
+                        
+                        
+            
+                        
+                            
+            
+                        
+                        
+            
+            
+            
+                    
+                    
